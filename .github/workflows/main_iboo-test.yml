@@ -25,8 +25,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish dotnetcoresample.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Publish with dotnet
+        run: dotnet publish dotnetcoresample.csproj -c Release -o "${{ github.workspace }}/myapp"
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
